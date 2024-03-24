@@ -4,9 +4,10 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/rysavyvladan/go-revolut/business/1.0/request"
 	"net/http"
 	"time"
+
+	"github.com/rysavyvladan/go-revolut/business/1.0/request"
 )
 
 type CounterpartyService struct {
@@ -44,8 +45,8 @@ type RevolutCounterpartyReq struct {
 
 type NonRevolutCounterpartyReq struct {
 	// an optional name of the external company counterparty, this field must exist when individual_name does not
-	CompanyName  string                                `json:"company_name,omitempty"`
-	InvidualName NonRevolutCounterpartyReqInvidualName `json:"invidual_name,omitempty"`
+	CompanyName    string                                  `json:"company_name,omitempty"`
+	IndividualName NonRevolutCounterpartyReqIndividualName `json:"individual_name,omitempty"`
 	// the country of the bank
 	BankCountry string `json:"bank_country"`
 	// the currency of a counterparty's account
@@ -63,7 +64,7 @@ type NonRevolutCounterpartyReq struct {
 	Address NonRevolutCounterpartyReqAddress `json:"address"`
 }
 
-type NonRevolutCounterpartyReqInvidualName struct {
+type NonRevolutCounterpartyReqIndividualName struct {
 	// an optional first name of the external individual counterparty, this field must exist when company_name does not
 	FirstName string `json:"first_name,omitempty"`
 	// an optional last name of the external individual counterparty, this field must exist when company_name does not
