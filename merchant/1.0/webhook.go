@@ -3,8 +3,9 @@ package merchant
 import (
 	"encoding/json"
 	"errors"
-	"github.com/rysavyvladan/go-revolut/merchant/1.0/request"
 	"net/http"
+
+	"github.com/quiver-london/go-revolut/merchant/1.0/request"
 )
 
 type WebhookService struct {

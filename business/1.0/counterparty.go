@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/rysavyvladan/go-revolut/business/1.0/request"
+	"github.com/quiver-london/go-revolut/business/1.0/request"
 )
 
 type CounterpartyService struct {

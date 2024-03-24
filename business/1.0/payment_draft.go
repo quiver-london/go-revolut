@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/rysavyvladan/go-revolut/business/1.0/request"
 	"net/http"
+
+	"github.com/quiver-london/go-revolut/business/1.0/request"
 )
 
 type PaymentDraftService struct {

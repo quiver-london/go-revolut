@@ -1,34 +1,39 @@
 # go-revolut
+
 go-revolut is a Go client library for the [Revolut API](https://developers.revolut.com/)
 
 ### Features
-* Business API
-    * OAuth
-    * Accounts
-    * Counterparties
-    * Payments
-    * Transfers
-    * Exchanges
-    * Payment Drafts
-    * Webhooks
-* Merchant API
-    * Orders
-    * Webhooks
-    
+
+- Business API
+  - OAuth
+  - Accounts
+  - Counterparties
+  - Payments
+  - Transfers
+  - Exchanges
+  - Payment Drafts
+  - Webhooks
+- Merchant API
+  - Orders
+  - Webhooks
+
 ### Install
+
 ```
-    go get github.com/rysavyvladan/go-revolut
+    go get github.com/quiver-london/go-revolut
 ```
 
 ## Business API
+
 ### Usage
-for setup business api visit [official documentation](https://developers.revolut.com/docs/#business-api-business-api-authentication-setting-up-access-to-your-business-account) 
+
+for setup business api visit [official documentation](https://developers.revolut.com/docs/#business-api-business-api-authentication-setting-up-access-to-your-business-account)
 
 #### Create client
+
 Every access token is valid for 40 minutes, after which is automatically refresh.
 
 > For businesses on the freelancer plan: You can do this for 90 days, after which the refresh token will not be valid anymore. You will then need to repeat the API authorisation process, as required by the PSD2 regulations.
-
 
 ```go
 	clientId := "pOoEBEmp8CwpBDgf3opC7aPnSe9OaSCC-fvvoti_RJU"
@@ -54,8 +59,11 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 ```
 
 ### Examples
+
 #### Accounts
+
 ##### Get all accounts
+
 ```go
 	accounts, err := bC.Account().List()
 	if err != nil {
@@ -66,7 +74,9 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 		fmt.Println(account)
 	}
 ```
+
 ##### Get Account by Id
+
 ```go
 	account, err := bC.Account().WithId("8b8be318-e81a-4dee-97b5-35399628814f")
 	if err != nil {
@@ -77,7 +87,9 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 ```
 
 ### Counterparties
+
 #### Get all counterparties
+
 ```go
 	counterparties, err := bC.Counterparty().List()
 	if err != nil {
@@ -90,6 +102,7 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 ```
 
 #### Retrieve counterparty by id
+
 ```go
 	counterparty, err := bC.Counterparty().WithId("2af1d943-a6ee-4ab0-b8b1-67f7d92aa330")
 	if err != nil {
@@ -99,6 +112,7 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 ```
 
 #### Delete counterparty
+
 ```go
 	if err := bC.Counterparty().Delete("2af1d943-a6ee-4ab0-b8b1-67f7d92aa330"); err != nil {
 		panic(err)
@@ -106,7 +120,9 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 ```
 
 ### Transfers
+
 #### Create transfer
+
 ```go
 	transfer, err := bC.Transfer().Create(&business.TransferReq{
 		RequestId:       "e0cbf84637264ee082a848c",
@@ -122,9 +138,10 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 	fmt.Println(transfer)
 ```
 
-
 ### Exchanges
+
 #### Get rates
+
 ```go
 	rate, err := bC.Exchange().Rate(&business.ExchangeRateReq{
 		From:   "USD",
@@ -138,6 +155,7 @@ Every access token is valid for 40 minutes, after which is automatically refresh
 ```
 
 #### Exchange currency
+
 ```go
 	exchange, err := bC.Exchange().Exchange(&business.ExchangeReq{
 		From: business.ExchangeAmount{
