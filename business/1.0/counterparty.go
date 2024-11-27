@@ -55,8 +55,6 @@ type NonRevolutCounterpartyReq struct {
 	AccountNo string `json:"account_no"`
 	// sort code
 	SortCode string `json:"sort_code"`
-	// routing transit number
-	RoutingNumber string `json:"routing_number"`
 	// an optional email address of the beneficiary
 	Email string `json:"email,omitempty"`
 	// an optional phone number of the beneficiary
