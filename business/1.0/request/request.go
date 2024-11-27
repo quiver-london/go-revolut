@@ -51,6 +51,7 @@ func New(conf Config) ([]byte, int, error) {
 	}
 
 	req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", conf.AccessToken))
+	req.Header.Set("Content-Type", "application/json")
 
 	c := &http.Client{}
 
