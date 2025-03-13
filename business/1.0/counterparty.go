@@ -58,8 +58,8 @@ type NonRevolutCounterpartyReq struct {
 	// an optional email address of the beneficiary
 	Email string `json:"email,omitempty"`
 	// an optional phone number of the beneficiary
-	Phone   string                           `json:"phone,omitempty"`
-	Address NonRevolutCounterpartyReqAddress `json:"address"`
+	Phone   string                            `json:"phone,omitempty"`
+	Address *NonRevolutCounterpartyReqAddress `json:"address,omitempty"`
 }
 
 type NonRevolutCounterpartyReqIndividualName struct {

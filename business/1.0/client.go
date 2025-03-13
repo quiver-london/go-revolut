@@ -101,10 +101,6 @@ func (b *Client) Webhook() *WebhookService {
 }
 
 func (b *Client) refreshAccessToken() error {
-	if b.accessTokenExpiration > time.Now().Unix() {
-		return nil
-	}
-
 	expirationOfAccessToken := time.Now().Unix()
 	accessToken, err := b.oa.RefreshAccessToken(b.refreshToken)
 	if err != nil {
@@ -112,6 +108,5 @@ func (b *Client) refreshAccessToken() error {
 	}
 	b.accessTokenExpiration = expirationOfAccessToken + int64(accessToken.ExpiresIn)
 	b.accessToken = accessToken.AccessToken
-
 	return nil
 }
