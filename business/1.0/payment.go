@@ -40,7 +40,7 @@ type PaymentReceiver struct {
 	CounterpartyId string `json:"counterparty_id"`
 	// the ID of the receiving counterparty's account, provide only for payments to business counterparties,
 	//can be own account (only for internal counterparties)
-	AccountId string `json:"account_id"`
+	AccountId string `json:"account_id,omitempty"`
 }
 
 type PaymentState string

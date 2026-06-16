@@ -46,7 +46,7 @@ type PaymentDraftPaymentReceiver struct {
 	// the ID of the receiving counterparty
 	CounterpartyId string `json:"counterparty_id"`
 	// an optional ID of the receiving counterparty's account, can be own account (only for internal counterparties)
-	AccountId string `json:"account_id,optional"`
+	AccountId string `json:"account_id,omitempty"`
 }
 
 type PaymentDrafts struct {
@@ -58,9 +58,9 @@ type PaymentOrder struct {
 	// the ID of the draft payment
 	Id string `json:"id"`
 	// an optional future date/time
-	ScheduledFor string `json:"scheduled_for,optional"`
+	ScheduledFor string `json:"scheduled_for,omitempty"`
 	// an optional title of payment
-	Title string `json:"title,optional"`
+	Title string `json:"title,omitempty"`
 	// count of payments in current draft
 	PaymentsCount int `json:"payments_count"`
 }
